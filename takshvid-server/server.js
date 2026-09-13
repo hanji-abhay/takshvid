@@ -9,6 +9,10 @@ import { globalLimiter } from './src/middleware/rateLimit.js'
 import errorHandler from './src/middleware/errorHandler.js'
 import authRoutes from './src/routes/auth.routes.js'
 import userRoutes from './src/routes/user.routes.js'
+import kyvyaRoutes from './src/routes/kyvya.routes.js'
+import studyRoutes from './src/routes/study.routes.js'
+import learnRoutes from './src/routes/learn.routes.js'
+import codeRoutes from './src/routes/code.routes.js'
 
 const app = express()
 
@@ -30,6 +34,11 @@ connectCloudinary()
 // Routes
 app.use('/api/auth', authRoutes)
 app.use('/api/user', userRoutes)
+app.use('/api/kyvya', kyvyaRoutes)
+app.use('/api/study', studyRoutes)
+app.use('/api/learn', learnRoutes)
+app.use('/api/code', codeRoutes)
+
 // Test Route
 app.get('/', (req, res) => {
     res.json({
